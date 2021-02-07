@@ -3,4 +3,6 @@ Saw a tutorial made by #TechWithTim on his youtube channel, cidng along with him
     ways to add more features to his note app. SUch as:
 
     - Adding a Title to each note since he didn't create that functionality.
-    - Adding categories for notes 
+    - Adding categories for notes
+    - Share notes
+    - Password protect 
