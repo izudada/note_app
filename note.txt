@@ -1,0 +1,6 @@
+Thought process:
+Saw a tutorial made by #TechWithTim on his youtube channel, cidng along with him made me think of 
+    ways to add more features to his note app. SUch as:
+
+    - Adding a Title to each note since he didn't create that functionality.
+    - Adding categories for notes 
