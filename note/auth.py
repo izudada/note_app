@@ -15,7 +15,7 @@ def signup():
             flash('Full Name must be greater than 4 characters', 'danger')
         elif len(email) < 4:
             flash('Email must be greater than 4 characters', 'danger')
-        elif len(password) < 7 and password != confirm:
+        elif len(password) < 7 or password != confirm:
             flash("Password must be greater than 7 characters Or doesn't match", "danger")
         else:
             flash('Account Created...', 'success')
