@@ -2,6 +2,6 @@
     margin: 0;
     padding: 0;
 }
-.container{
-    padding-top: 30px;
+.container, .flash{
+    margin-top: 80px;
 }
