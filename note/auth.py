@@ -33,7 +33,7 @@ def signup():
             flash('Account Created...', 'success')
             return redirect(url_for('auth.login'))
 
-    return render_template('register.html')
+    return render_template('register.html', user=current_user)
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -52,7 +52,7 @@ def login():
         else:
             flash('Email does not exist', 'danger')
 
-    return render_template('login.html')
+    return render_template('login.html', user=current_user)
 
 @auth.route('/logout')
 @login_required
