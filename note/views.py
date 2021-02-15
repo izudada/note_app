@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required, current_user
-from .models import Category
+from .models import Category, Note
 from . import db
 
 views = Blueprint("views", __name__)
@@ -33,6 +33,15 @@ def home():
         flash("You have not created a category yet", "success")
         return render_template("dashboard.html", user=current_user)
 
+@views.route('/categories/<int:cat_id>/notes')
+@login_required
+def view_category(cat_id):
+    notes = Note.query.filter_by(category_id=cat_id).all()
+    if len(notes) < 1:
+        flash("You have no notes for this category", "success")
+        return render_template('category.html')
+    else:
+        return render_template('category.html', notes=notes)
 
 @views.route('/categories/add_note', methods=['POST'])
 @login_required
