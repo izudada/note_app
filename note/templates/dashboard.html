@@ -55,15 +55,15 @@
             </div>
         </div>
 
-        <div class="row">
-            <ul class="list-group list-group-flush" id="notes">
-                {% for category in categories %}
-                    <a href="">
-                        <li class="list-group-item "> {{ category.title }} </li>
-                    </a>
-                {% endfor %}
-            </ul>
-        </div>
+        {% for category in categories %}
+            <a href="">
+                <div class="row">
+                    <ul class="list-group list-group-flush" id="notes">
+                                <li class="list-group-item "> {{ category.title }} </li>
+                    </ul>
+                </div>
+            </a>
+        {% endfor %}
         
     </div>
     
