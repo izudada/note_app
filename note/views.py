@@ -28,10 +28,10 @@ def home():
 
     categories = Category.query.filter_by(user_id=user_id).all()
     if categories:
-        return render_template("dashboard.html", user=current_user, categories=categories)
+        return render_template("user/dashboard.html", user=current_user, categories=categories)
     else:
         flash("You have not created a category yet", "success")
-        return render_template("dashboard.html", user=current_user)
+        return render_template("user/dashboard.html", user=current_user)
 
 @views.route('/categories/<int:cat_id>/notes')
 @login_required
@@ -39,9 +39,9 @@ def view_category(cat_id):
     notes = Note.query.filter_by(category_id=cat_id).all()
     if len(notes) < 1:
         flash("You have no notes for this category", "success")
-        return render_template('category.html')
+        return render_template('user/category.html')
     else:
-        return render_template('category.html', notes=notes)
+        return render_template('user/category.html', notes=notes)
 
 @views.route('/categories/add_note', methods=['POST'])
 @login_required
