@@ -1,59 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+{% extends "user/home_base.html" %} {% block title %} Dashboard {% endblock %}
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+{%block body %}
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css" />
+    <div class="container-fluid">
+        <h1>Note Categories</h1>
+        <br>
 
-</head>
-<body>
-    <div class="container">
+        <a href="" class="" data-toggle="modal" data-target="#note">
+            <i class="material-icons icon">loupe</i>
+        </a>
 
-        <div class="row">
-            <h1>Note Categories</h1>
-            <br>
+        <!-- The Modal -->
+        <div class="modal" id="note">
+            <div class="modal-dialog">
+                <div class="modal-content">
 
-            <a href="" class="" data-toggle="modal" data-target="#note">
-                <i class="material-icons icon">loupe</i>
-            </a>
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h2 class="modal-title">Create Category </h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form action="" method="post">
+                            <div class="form-group">
+                                <label for="title"> Title </label>
+                                <input type="title" class="form-control" id="title" name="title" placeholder="Enter Title">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success">Create </button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
 
-            <!-- The Modal -->
-            <div class="modal" id="note">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h2 class="modal-title">Create Category </h2>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <form action="" method="post">
-                                <div class="form-group">
-                                    <label for="title"> Title </label>
-                                    <input type="title" class="form-control" id="title" name="title" placeholder="Enter Title">
-                                </div>
-                                <br>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-success">Create </button>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    
 
         {% for category in categories %}
             <a href="{{url_for('views.view_category', cat_id=category.id)}}">
@@ -64,11 +51,7 @@
                 </div>
             </a>
         {% endfor %}
-        
+            
+        </div>
     </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-</body>
-</html>
+{% endblock %}
