@@ -33,26 +33,28 @@ def home():
         flash("You have not created a category yet", "success")
         return render_template("user/dashboard.html", user=current_user)
 
-@views.route('/categories/<int:cat_id>/notes')
+@views.route('/categories/<int:cat_id>/notes', methods=['GET', 'POST'])
 @login_required
 def view_category(cat_id):
+    user_id = current_user.get_id()
     notes = Note.query.filter_by(category_id=cat_id).all()
+    if request.method == 'POST':
+        title = request.form.get('title')
+        body = request.form.get('body')
+
+        if len(body) < 1 or len(title) < 1:
+            flash("Sorry, Title and Body can't be empty", "danger") 
+            return redirect(url_for('views.view_category'))
+        else:
+            new_note = Note(title=title, body=body, user_id=user_id, category_id=cat_id)
+            db.session.add(new_note)
+            db.session.commit()
+            flash("Note has been added", "success")
+            return redirect(url_for('views.view_category')) 
+
     if len(notes) < 1:
         flash("You have no notes for this category", "success")
         return render_template('user/category.html')
     else:
         return render_template('user/category.html', notes=notes)
 
-@views.route('/categories/add_note', methods=['POST'])
-@login_required
-def add_note():
-    title = request.form.get('title')
-    body = request.form.get('body')
-
-    if len(body) < 1 or len(title) < 1:
-        flash("Sorry, Title and Body can't be empty", "danger") 
-        return redirect(url_for('home'))
-    else:
-        new_note = Note()
-        flash("Note has been added", "success")
-        return redirect(url_for('home')) 
