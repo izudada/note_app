@@ -31,7 +31,12 @@
     transform: translateX(0);
 }
 
-nav{
+nav .breadcrumb{
+    font-size: 10pt;
+    background: none !important;
+}
+
+#nav{
     background-image: linear-gradient(to right, #cce0ff , #0066ff);
     margin: -5px;
     height: 54px;
@@ -75,7 +80,7 @@ nav{
 }
 
 .nav-link.active{
-    background-color: #1a0900;
+    background-color: #002966;
 }
 
 .nav-item > a:hover{
