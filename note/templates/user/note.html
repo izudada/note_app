@@ -14,7 +14,7 @@
         <h1>Notes </h1>
 
         <a href="" class="" data-toggle="modal" data-target="#note">
-            <i class="material-icons icon" id="loupe">post_add</i>
+            <i class="material-icons icon" id="loupe">edit</i>
         </a>
 
         <!-- The Modal -->
@@ -24,7 +24,7 @@
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h2 class="modal-title">Make A Note </h2>
+                        <h2 class="modal-title">Edit Note </h2>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <!-- Modal body -->
@@ -57,14 +57,11 @@
         <br>
         <br>
         <ul class="list-group list-group-flush">
-            {% for note in notes %}
-                <a href="{{url_for('views.view_notes', cat_id=note.category_id, note_id=note.id)}}">
-                    <div class="">
-                        <li class="list-group-item"> {{ note.title }} </li>
-                        <br>
-                    </div>
-                </a>
-            {% endfor %}
+            <div class="">
+                <li class="list-group-item"> {{ note.title }} </li>
+                <br>
+                <li class="list-group-item"> {{ note.body }} </li>
+            </div>
         </ul>
             
         </div>

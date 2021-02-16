@@ -58,3 +58,14 @@ def view_category(cat_id):
     else:
         return render_template('user/category.html', notes=notes)
 
+@views.route('/categories/<int:cat_id>/notes/<int:note_id>')
+@login_required
+def view_notes(cat_id, note_id):
+    user_id = current_user.get_id()
+    note = Note.query.filter_by(id=note_id).one()
+
+    if not note:
+        flash("Note no longer exist", "danger")
+        return render_template('user/notee.html')
+    else:
+        return render_template('user/note.html', note=note)
