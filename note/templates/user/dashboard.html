@@ -4,10 +4,9 @@
 
     <div class="container-fluid">
         <h1>Note Categories</h1>
-        <br>
 
         <a href="" class="" data-toggle="modal" data-target="#note">
-            <i class="material-icons icon">loupe</i>
+            <i class="material-icons icon" id="loupe">loupe</i>
         </a>
 
         <!-- The Modal -->
@@ -40,17 +39,19 @@
                 </div>
             </div>
         </div>
-    
 
-        {% for category in categories %}
-            <a href="{{url_for('views.view_category', cat_id=category.id)}}">
-                <div class="row">
-                    <ul class="list-group list-group-flush" id="notes">
-                                <li class="list-group-item "> {{ category.title }} </li>
-                    </ul>
-                </div>
-            </a>
-        {% endfor %}
+        <br>
+        <br>
+        <ul class="list-group list-group-flush" id="notes">
+            {% for category in categories %}
+                <a href="{{url_for('views.view_category', cat_id=category.id)}}">
+                    <div class="">
+                        <li class="list-group-item"> {{ category.title }} </li>
+                        <br>
+                    </div>
+                </a>
+            {% endfor %}
+        </ul>
             
         </div>
     </div>
