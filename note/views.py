@@ -50,7 +50,7 @@ def view_category(cat_id):
             db.session.add(new_note)
             db.session.commit()
             flash("Note has been added", "success")
-            return redirect(url_for('views.view_category')) 
+            return redirect(url_for('views.view_category', cat_id=cat_id)) 
 
     if len(notes) < 1:
         flash("You have no notes for this category", "success")
