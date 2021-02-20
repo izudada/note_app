@@ -58,14 +58,28 @@ def view_category(cat_id):
     else:
         return render_template('user/category.html', notes=notes)
 
-@views.route('/categories/<int:cat_id>/notes/<int:note_id>')
+@views.route('/categories/<int:cat_id>/notes/<int:note_id>', methods=['GET', 'POST'])
 @login_required
 def view_notes(cat_id, note_id):
     user_id = current_user.get_id()
     note = Note.query.filter_by(id=note_id).one()
 
+    if request.method == 'POST':
+        title = request.form.get('title')
+        body = request.form.get('body')
+
+        if len(body) < 1 or len(title) < 1:
+            flash("Sorry, Title and Body can't be empty", "danger") 
+            return request.url
+        else:
+            note.title = title
+            note.body = body
+            db.session.commit()
+            flash("Note has been updated", "success")
+            return redirect(url_for('views.view_notes', note_id=note_id))
+
     if not note:
         flash("Note no longer exist", "danger")
-        return render_template('user/notee.html')
+        return render_template('user/note.html')
     else:
-        return render_template('user/note.html', note=note)
+        return render_template('user/note.html', note=note, note_id=note_id)

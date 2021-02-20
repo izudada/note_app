@@ -79,12 +79,9 @@ nav .breadcrumb{
     color: white;
 }
 
-.nav-link.active{
-    background-color: #002966;
-}
-
-.nav-item > a:hover{
-    background-color: #003380;
+.nav-link.active, .nav-item > a:hover{
+    background-color: #000000;
+    border-radius: 10px;
 }
 
 .list-group a {
@@ -93,6 +90,7 @@ nav .breadcrumb{
 
 .list-group a .list-group-item{
     box-shadow: 0px 1px 4px 3px #cce0ff;
+    width: 70%;
 }
 
 .container-fluid a{
