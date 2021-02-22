@@ -100,6 +100,32 @@ nav .breadcrumb{
     font-size: 33pt;
 }
 
+.top-link {
+    transition: all .25s ease-in-out;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: inline-flex;
+     
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2em 2em 0;
+    border-radius: 50%;
+    padding: .25em;
+    width: 60px;
+    height: 60px;
+    background-color: #0066ff;
+}   
+
+.top-link i {
+fill: #ffffff;
+color: #ffffff;
+margin: 1.3em 0.6em 2em 0;
+width: 24px;
+height: 12px;
+}
+
 @media (min-width:992px){
     .sideMenu{
         transform: translateX(0);
