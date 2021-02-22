@@ -44,12 +44,18 @@
         <br>
         <ul class="list-group list-group-flush" id="notes">
             {% for category in categories %}
-                <a href="{{url_for('views.view_category', cat_id=category.id)}}">
-                    <div class="">
-                        <li class="list-group-item"> {{ category.title }} </li>
-                        <br>
-                    </div>
-                </a>
+
+                <div class="">
+                    <li class="list-group-item"> 
+                        <a href="{{url_for('views.view_category', cat_id=category.id)}}"> 
+                            {{ category.title }} </a>
+                        <button type="button" class="close" onClick="deleteCategory({{ category.id }})">
+                            <span arial-hidden="true"> &times; </span>
+                        </button>
+                    </li>
+                    <br>
+                </div>
+
             {% endfor %}
         </ul>
             

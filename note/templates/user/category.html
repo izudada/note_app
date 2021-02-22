@@ -59,7 +59,7 @@
         <ul class="list-group list-group-flush">
             {% for note in notes %}
                 <a href="{{url_for('views.view_notes', cat_id=note.category_id, note_id=note.id)}}">
-                    <div class="display">
+                    <div class="">
                         <li class="list-group-item"> {{ note.title }} </li>
                         <br>
                     </div>
