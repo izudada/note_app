@@ -1,6 +1,6 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify
+from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify, render_template
 from flask_login import login_required, current_user
-from .models import Category, Note
+from .models import Category, Note, User
 from . import db
 import json
 
@@ -71,7 +71,7 @@ def view_notes(cat_id, note_id):
 
         if len(body) < 1 or len(title) < 1:
             flash("Sorry, Title and Body can't be empty", "danger") 
-            return request.url
+            return redirect(url_for('views.view_notes', note_id=note_id, cat_id=cat_id))
         else:
             note.title = title
             note.body = body
@@ -107,6 +107,7 @@ def delete_category():
     return jsonify({})
 
 @views.route('/delete_note', methods=['POST'])
+@login_required
 def delete_note():
     note = json.loads(request.data)
     note_id = note['noteID']
@@ -119,3 +120,28 @@ def delete_note():
         flash("Note Deleted", "success")
         
     return jsonify({})
+
+@views.route('/profile')
+@login_required
+def profile():
+    user = User.query.filter_by(id=current_user.id).one()
+
+    return render_template('user/settings.html', user=user)
+
+@views.route('/edit_profile', methods=['POST'])
+@login_required
+def edit_profile():
+    user = User.query.filter_by(id=current_user.id).one()
+    fullname = request.form.get('fullname')
+    email = request.form.get('email')
+
+    if len(fullname) < 1 and len(email) < 1:
+        flash("Make sure to fill in all required details", "danger")
+        return redirect(url_for('views.profile'))
+    else:
+        user.full_name = fullname
+        user.email = email
+
+        db.session.commit()
+        flash("Details changed", "success")
+        return redirect(url_for('views.profile'))
