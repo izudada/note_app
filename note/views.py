@@ -105,3 +105,17 @@ def delete_category():
             flash("Category Deleted", "success")
         
     return jsonify({})
+
+@views.route('/delete_note', methods=['POST'])
+def delete_note():
+    note = json.loads(request.data)
+    note_id = note['noteID']
+    note = Note.query.get(note_id)
+    if note:
+        if note.user_id == current_user.id:
+            db.session.delete(note)
+            db.session.commit()
+
+        flash("Note Deleted", "success")
+        
+    return jsonify({})

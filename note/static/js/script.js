@@ -24,3 +24,13 @@ function deleteCategory(catID){
         window.location.href = "/home" 
     })
 }
+
+function deleteNote(noteID, catID){
+    fetch('/delete_note', {
+        method: 'POST',
+        body: JSON.stringify({noteID: noteID})
+    })
+    .then((_res) => {
+        window.location.href = "/categories/" + catID + "/notes" 
+    })
+}
