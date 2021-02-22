@@ -77,7 +77,7 @@ def view_notes(cat_id, note_id):
             note.body = body
             db.session.commit()
             flash("Note has been updated", "success")
-            return redirect(url_for('views.view_notes', note_id=note_id))
+            return redirect(url_for('views.view_notes', note_id=note_id, cat_id=cat_id))
 
     if not note:
         flash("Note no longer exist", "danger")
