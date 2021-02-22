@@ -126,6 +126,10 @@ width: 24px;
 height: 12px;
 }
 
+.logo{
+    color: black;
+}
+
 @media (min-width:992px){
     .sideMenu{
         transform: translateX(0);
