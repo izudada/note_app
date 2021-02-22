@@ -7,7 +7,8 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{url_for('views.home')}}">Category</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Notes</li>
+                <li class="breadcrumb-item active" aria-current="page"> <a href="{{url_for('views.view_category', cat_id=note.category_id)}}"> Notes </a> </li>
+                <li class="breadcrumb-item active" aria-current="page"> Note </li>
             </ol>
         </nav>
 
