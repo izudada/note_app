@@ -93,10 +93,11 @@ def delete_category():
     category = Category.query.get(category_id)
     if category:
         if category.user_id == current_user.id:
-            notes = Note.query.get(category_id=category_id).all()
-            for note in notes:
-                db.session.delete(note)
-                db.session.commit()
+            notes = Note.query.filter_by(category_id=category_id).all()
+            if notes:
+                for note in notes:
+                    db.session.delete(note)
+                    db.session.commit()
                 
             db.session.delete(category)
             db.session.commit()
