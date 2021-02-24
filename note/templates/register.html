@@ -1,28 +1,31 @@
 {% extends "base.html" %} {% block title %} Sign Up {% endblock %}
 
 {%block body %}
-    <h1> Sign Up</h1>
-    <form action="" method="post">
-        <div class="form-group">
-            <label for="fullname"> Fullname </label>
-            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter Fullname" required>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" name="email" class="form-control" id="" aria-describedby="" placeholder="Enter email" required>
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-            <label for="password1"> Password </label>
-            <input type="password" class="form-control" id="password1" name="password1" placeholder="Enter Password" required>
-        </div>
-        <div class="form-group">
-            <label for="password2"> Password (Confirm)</label>
-            <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password" required>
-        </div>
+    <div class="row form">
+        <h1> Sign Up</h1>
         <br>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Submit </button>
-        </div>
-    </form>
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="fullname"> Fullname </label>
+                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter Fullname" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" name="email" class="form-control" id="" aria-describedby="" placeholder="Enter email" required>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="password1"> Password </label>
+                <input type="password" class="form-control" id="password1" name="password1" placeholder="Enter Password" required>
+            </div>
+            <div class="form-group">
+                <label for="password2"> Password (Confirm)</label>
+                <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit </button>
+            </div>
+        </form>
+    </div>
 {% endblock %}
