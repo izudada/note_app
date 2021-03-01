@@ -1,6 +1,6 @@
 # Read Me Template
 
-![Project Image](static/images/image.png)
+![Project Image](static/images/readme_screenshot.png.png)
 
 ---
 
@@ -50,7 +50,7 @@ This Note app hass additional features:
    ```sh
     pip3 install requirements.txt
    ```
-4.  open terminal and run:
+3.  open terminal and run:
    ```sh
     python3 main.py 
    ```
@@ -58,7 +58,7 @@ This Note app hass additional features:
    ```sh
     flask run
    ```
-5.  Open a browser tab visit "http://localhost:5000/"
+4.  Open a browser tab visit "http://localhost:5000/"
 
 ---
 
