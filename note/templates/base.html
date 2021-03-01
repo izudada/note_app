@@ -23,7 +23,7 @@
           <span class="icon-bar"></span>
         </button>
         <a href="/" class="navbar-brand">
-          <img src="../static/images/logo.png" class="img-responsive" alt="Logo">
+          <img src="{{url_for('static', filename='images/logo.png')}}" class="img-responsive" alt="Logo">
         </a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse-main">
@@ -31,6 +31,7 @@
           <li> <a href="/"> Home </a> </li>
           {% if user.is_authenticated %}
             <li><a href="/logout">Logout</a></li>
+            <li><a href="/home">Dashboard</a></li>
           {% else %}
             <li><a href="/register">Signup</a></li>
             <li><a href="/login">Login</a></li>
