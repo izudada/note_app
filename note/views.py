@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify, render_template
 from flask_login import login_required, current_user
+from werkzeug.security import generate_password_hash
 from .models import Category, Note, User
 from . import db
 import json
@@ -144,4 +145,17 @@ def edit_profile():
 
         db.session.commit()
         flash("Details changed", "success")
+        return redirect(url_for('views.profile'))
+
+@views.route('/change_password', methods=['POST'])
+@login_required
+def change_password():
+    user = User.query.filter_by(id=current_user.id).one()
+    if request.method == 'POST':
+        password = request.form['password']
+
+        user.password = generate_password_hash(password, method='sha256')
+        db.session.commit()
+
+        flash("Password changed", "success")
         return redirect(url_for('views.profile'))
