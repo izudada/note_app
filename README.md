@@ -1,6 +1,6 @@
 # Read Me Template
 
-![Project Image](static/images/readme_screenshot.png.png)
+![Project Image](static/images/readme_screenshot.png)
 
 ---
 
