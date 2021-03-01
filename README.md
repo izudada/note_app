@@ -27,7 +27,8 @@ This Note app hass additional features:
 - Edit Notes
 - Change Password/User Details
 
-
+Deployed project to heroku:
+   https://izudada-note-app.herokuapp.com/
 
 #### Technologies
 
