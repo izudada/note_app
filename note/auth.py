@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, render_template, request, flash, redirect, url_for, session
 from . import db
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -46,7 +46,11 @@ def login():
             if check_password_hash(user.password, password):
                 login_user(user, remember=True)
                 flash("Logged in successfully", "success")
-                return redirect(url_for('views.home'))
+                if email == 'caretaker@izudada.com':
+                    session['role'] = 'admin'
+                    return redirect(url_for('views.caretaker'))
+                else:
+                    return redirect(url_for('views.home'))
             else:
                 flash('Incorrect password', 'danger')
         else:

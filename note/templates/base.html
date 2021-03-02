@@ -29,7 +29,7 @@
       <div class="collapse navbar-collapse" id="navbar-collapse-main">
         <ul class="nav navbar-nav navbar-right">
           <li> <a href="/"> Home </a> </li>
-          {% if user.is_authenticated %}
+          {% if user.is_authenticated  and 'role' not in session %}
             <li><a href="/logout">Logout</a></li>
             <li><a href="/home">Dashboard</a></li>
           {% else %}

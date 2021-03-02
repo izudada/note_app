@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify, render_template
+from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify, render_template, session
 from flask_login import login_required, current_user
 from werkzeug.security import generate_password_hash
 from .models import Category, Note, User
@@ -159,3 +159,10 @@ def change_password():
 
         flash("Password changed", "success")
         return redirect(url_for('views.profile'))
+
+@views.route("/caretaker")
+@login_required
+def caretaker():
+    users = User.query.order_by(User.id).all()
+
+    return render_template("caretaker.html", users=users)

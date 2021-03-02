@@ -9,6 +9,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     notes = db.relationship('Note')
     category = db.relationship('Category')
+    # created_date = db.Column(db.DateTime(timezone=True), default=func.now())
 
 class Note(db.Model):
     id = db.Column(db.Integer, primary_key=True)
