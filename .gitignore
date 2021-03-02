@@ -1,4 +1,3 @@
-*.db
 env/
 views.cpython-37.pyc
 auth.cpython-37.pyc
