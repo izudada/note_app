@@ -85,10 +85,34 @@
 }
 
 .features{
-    padding-top: 40px;
+    padding-top: 20px;
     box-sizing: border-box;
 }
 
+.features h2{
+    padding: 20px;
+}
+
+footer{
+    margin-top: 20px;
+    padding: 30px;
+    background-color: #0066ff;
+    border-radius: 0 0 50px 50px ;
+}
+
+footer div {
+    font-size: 25pt;
+}
+
+footer a{
+    border-radius: 45%;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover{
+    color: #cce0ff;
+}
 /* End of Styling For Landing Page, Login  & SignUp */
 
 .wrapper{
